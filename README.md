@@ -14,6 +14,36 @@ The built executable is here:
 .\bin\Debug\net9.0-windows\DesktopCapsules.exe
 ```
 
+## Build Installer
+
+DesktopCapsules uses Inno Setup for a lightweight Windows installer.
+
+Install Inno Setup 6:
+
+```powershell
+winget install JRSoftware.InnoSetup
+```
+
+Build the default lightweight installer:
+
+```powershell
+.\installer\build-installer.ps1
+```
+
+The lightweight installer requires users to have the .NET 9 Windows Desktop Runtime installed. The installer checks for it and links to the Microsoft download page if it is missing.
+
+Build a larger self-contained installer that does not require a separate .NET install:
+
+```powershell
+.\installer\build-installer.ps1 -SelfContained
+```
+
+Installer output is written to:
+
+```text
+.\dist
+```
+
 ## Current Behavior
 
 - Creates one default capsule named `Apps`.

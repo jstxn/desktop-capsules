@@ -2,6 +2,8 @@
 bin/
 obj/
 .codex-review-build/
+publish/
+dist/
 
 # Visual Studio / Rider
 .vs/
