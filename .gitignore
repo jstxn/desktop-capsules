@@ -1,0 +1,28 @@
+# Build output
+bin/
+obj/
+.codex-review-build/
+
+# Visual Studio / Rider
+.vs/
+.idea/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# .NET
+TestResults/
+artifacts/
+*.nupkg
+
+# Windows / logs
+Thumbs.db
+Desktop.ini
+*.log
+
+# Local app data exports
+layout.json
+layout.json.bak
+Groups/
+Removed/
