@@ -33,6 +33,7 @@ public partial class CapsuleWindow : Window, INotifyPropertyChanged
     private readonly Action _save;
     private readonly CapsuleState _state;
     private readonly CapsuleStorage _storage;
+    private Brush _itemSelectionBorderBrush = Brushes.Transparent;
     private bool _isDragging;
     private System.Windows.Point _dragStartScreen;
     private double _dragStartLeft;
@@ -413,6 +414,7 @@ public partial class CapsuleWindow : Window, INotifyPropertyChanged
 
                 var item = _storage.Import(_state.Id, file);
                 var viewModel = new CapsuleItemViewModel(item, ((App)System.Windows.Application.Current).Icons);
+                viewModel.SetSelectionBorderBrush(_itemSelectionBorderBrush);
                 _state.Items.Add(item);
                 Items.Add(viewModel);
                 importedItems.Add(viewModel);
@@ -890,6 +892,8 @@ public partial class CapsuleWindow : Window, INotifyPropertyChanged
 
     private void ApplyToolbarButtonAppearance(Brush backgroundBrush, Brush borderBrush)
     {
+        _itemSelectionBorderBrush = borderBrush;
+
         var buttons = new[] { OptionsButton, CollapseButton, DeleteButton };
         foreach (var button in buttons)
         {
